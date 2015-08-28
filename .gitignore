@@ -58,3 +58,6 @@ target/
 
 # Fixture Data
 data/
+
+# intellij
+.idea/

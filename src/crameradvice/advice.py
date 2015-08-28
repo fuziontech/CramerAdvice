@@ -9,14 +9,15 @@ from crameradvice.parser import (
     parse_message,
 )
 
-USERNAME = "davidcramer"
+#USERNAME_FILTER = lambda u: u[1] == "davidcramer"
+USERNAME_FILTER = lambda u: True
 IRC_LOGS = os.path.join('data', 'messages.txt')
 
 def main():
     markov = MarkovState()
 
     with open(IRC_LOGS, 'r') as f:
-        user_messages = filter(lambda m: m[1] == USERNAME, map(parse_message, f))
+        user_messages = filter(USERNAME_FILTER, map(parse_message, f))
         get_message = operator.itemgetter(2)
         user_messages = map(get_message, user_messages)
         strip = operator.methodcaller("strip", "\r")
