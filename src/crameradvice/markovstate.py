@@ -47,7 +47,6 @@ class MarkovState:
         if len(prefix) > self.markov.n:
             print("Warning: truncating prefix")
             prefix = prefix[self.markov.n - 1:]
-
         self.markov.reset(seed, prob, prefix)
 
         for i in range(offset):

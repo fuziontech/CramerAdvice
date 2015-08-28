@@ -66,7 +66,7 @@ class Markov:
         else:
             try:
                 next = self._choose(self.data[self.prev])
-            except:
+            except Exception as e:
                 self.prev = ()
                 next = self._choose(self.data[self.prev])
 
